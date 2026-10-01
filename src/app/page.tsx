@@ -1,5 +1,5 @@
 import Hero from "@/components/hero/Hero";
-import Navbar from "@/components/Navbar";
+import WorkoutLibrary from "@/components/WorkoutLibrary";
 import React from "react";
 
 
@@ -9,6 +9,8 @@ const HomePage = () => {
     <main>
       
     <Hero />
+
+    <WorkoutLibrary />
 
     </main>
   )
