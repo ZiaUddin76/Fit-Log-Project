@@ -2,13 +2,14 @@
 import MyPlanCard from '@/components/MyPlanCard';
 import { WorkoutContext } from '@/context/WorkoutContext';
 import Link from 'next/link';
-import React, { act, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 const MyPlanPage = () => {
 
 
-    const { todayPlan } = useContext(WorkoutContext);
-    console.log(todayPlan);
+    const { todayPlan, savedWorkouts } = useContext(WorkoutContext);
+    console.log("Today's Plan: ", todayPlan);
+    console.log("Saved Workouts:", savedWorkouts);
 
 
     const [activeTab, setActiveTab] = useState('today');
@@ -87,7 +88,7 @@ const MyPlanPage = () => {
 
             {activeTab === 'today' && (
                 todayPlan.length === 0 ? (
-                    <div  className="mt-8 rounded-xl bg-[#15171D] px-6 py-16 text-center">
+                    <div className="mt-8 rounded-xl bg-[#15171D] px-6 py-16 text-center">
                         <h2 className="text-xl font-bold text-white">
                             NOTHING HERE YET
                         </h2>
@@ -108,11 +109,47 @@ const MyPlanPage = () => {
                         <div className='mt-8 space-y-4'>
                             {todayPlan.map((workout) => (
                                 <MyPlanCard key={workout.id}
-                                    workout={workout} />
+                                    workout={workout}
+                                    type="today" />
                             ))}
                         </div>
                     )
             )}
+
+
+            {activeTab === 'saved' && (
+                savedWorkouts.length === 0 ? (
+                    <div className="mt-8 rounded-xl bg-[#15171D] px-6 py-16 text-center">
+
+                        <h2 className="text-xl font-bold text-white">
+                            NOTHING HERE YET
+                        </h2>
+
+                        <p className="mt-2 text-gray-400">
+                            Browse the library and save a workout for later.
+                        </p>
+
+                        <Link
+                            href="/"
+                            className="mt-6 inline-flex rounded-full bg-lime-400 px-6 py-3 font-semibold text-black"
+                        >
+                            Go to workouts
+                        </Link>
+
+                    </div>
+                ) : (
+                    <div className="mt-8 space-y-4">
+                        {savedWorkouts.map((workout) => (
+                            <MyPlanCard
+                                key={workout.id}
+                                workout={workout}
+                                type = "saved"
+                            />
+                        ))}
+                    </div>
+                )
+            )}
+
         </div>
 
     );

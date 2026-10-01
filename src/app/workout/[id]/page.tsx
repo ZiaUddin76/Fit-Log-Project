@@ -1,3 +1,4 @@
+import SaveWorkout from '@/components/SaveWorkout';
 import WorkoutActions from '@/components/WorkoutActions';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -79,16 +80,8 @@ const WorkoutDetails = async ({ params }: { params: Promise<{ id: string }>; }) 
                         <div>
                             <WorkoutActions workout={workout} />
 
-
-                            <Link
-                                href=""
-                                className='mt-8 inline-flex items-center gap-2 rounded-full
-                            bg-[#374151] px-6 py-3 font-semibold text-white'
-                            >
-                                <LuBookmark />
-                                Save For Later
-
-                            </Link>
+                            <SaveWorkout workout = {workout} />
+                            
                         </div>
 
                     </div>

@@ -3,26 +3,40 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
 import { LuClock3, LuFlame, LuStar, LuX } from 'react-icons/lu';
+import { toast } from 'react-toastify';
 
-const MyPlanCard = ({ workout }: { workout: any }) => {
+const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; }) => {
 
-    const {todayPlan, setTodayPlan} = useContext(WorkoutContext);
+    const { todayPlan, setTodayPlan, savedWorkouts, setSavedWorkouts } = useContext(WorkoutContext);
 
     const handleRemove = () => {
-        const updatedPlan = todayPlan.filter((item) => item.id !== workout.id);
-        setTodayPlan(updatedPlan);
+
+        if (type === "today") {
+            const updatedPlan = todayPlan.filter((item) => item.id !== workout.id);
+            setTodayPlan(updatedPlan);
+            toast.success("Workout removed from today's plan");
+        }
+
+        if (type === "saved") {
+            const updatedSaved = savedWorkouts.filter((item) => item.id !== workout.id);
+            setSavedWorkouts(updatedSaved);
+            toast.success("Workout removed from saved");
+        }
+
+
     };
 
 
     const handleMarkAsDone = () => {
         const updatedPlan = todayPlan.filter((item) => item.id !== workout.id);
         setTodayPlan(updatedPlan);
+        toast.success("Workout completed 🎉");
     };
 
 
     return (
 
-        
+
         <div className="flex items-center justify-between gap-6 rounded-xl bg-[#15171D] p-4">
 
             {/* Left: Image */}
@@ -77,12 +91,17 @@ const MyPlanCard = ({ workout }: { workout: any }) => {
                     View Details
                 </Link>
 
-                <button
-                    onClick={handleMarkAsDone}
-                    className="rounded-full bg-lime-400 px-4 py-2 text-sm font-semibold text-black"
-                >
-                    Mark as Done
-                </button>
+                {type === "today" && (
+
+                    <button
+                        onClick={handleMarkAsDone}
+                        className="rounded-full bg-lime-400 px-4 py-2 text-sm font-semibold text-black"
+                    >
+                        Mark as Done
+                    </button>
+
+                )}
+
 
                 <button
                     onClick={handleRemove}
@@ -95,7 +114,7 @@ const MyPlanCard = ({ workout }: { workout: any }) => {
 
         </div>
 
-        
+
     );
 };
 
