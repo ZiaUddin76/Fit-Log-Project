@@ -14,11 +14,9 @@ const Navbar = () => {
 
     const pathname = usePathname();
 
-    const { planCount, savedCount } = useContext(WorkoutContext);
+    const { todayPlan, savedWorkouts } = useContext(WorkoutContext);
 
     const [menuOpen, setMenuOpen] = useState(false);
-
-
 
 
 
@@ -54,14 +52,14 @@ const Navbar = () => {
                 <Link href="/my-plan" className="flex items-center gap-2">
                     <span>Plan</span>
                     <span className="flex h-5 w-5 items-center justify-center rounded-full bg-lime-400 text-xs font-bold text-black">
-                        {planCount}
+                        {todayPlan.length}
                     </span>
                 </Link>
 
                 <Link href="/my-plan" className="flex items-center gap-2">
                     <span>Saved</span>
                     <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gray-500 text-xs">
-                        {savedCount}
+                        {savedWorkouts.length}
                     </span>
                 </Link>
             </div>
@@ -92,11 +90,11 @@ const Navbar = () => {
                         </Link>
 
                         <li>
-                            <Link href="/my-plan">Plan 0</Link>
+                            <Link href="/my-plan">Plan {todayPlan.length} </Link>
                         </li>
 
                         <li>
-                            <Link href="/my-plan">Saved 0</Link>
+                            <Link href="/my-plan">Saved {savedWorkouts.length} </Link>
                         </li>
                     </ul>
                 </div>

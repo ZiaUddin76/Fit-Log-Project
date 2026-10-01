@@ -11,11 +11,10 @@ const HomePage = () => {
       <Hero />
 
       <Suspense fallback={
-        <div className="flex min-h[300px] items-center justify-center">
 
-          <p className="text-gray-400">
-            Loading Workouts
-          </p>
+        <div className="flex min-h-[300px] items-center justify-center">
+
+          <span className="loading loading-spinner text-success"></span>
 
         </div>
       }>

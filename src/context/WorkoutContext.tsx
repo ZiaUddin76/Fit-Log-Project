@@ -1,14 +1,9 @@
 'use client';
 
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode, useEffect } from 'react';
 
 
 interface IWorkoutContext {
-    planCount: number;
-    setPlanCount: React.Dispatch<React.SetStateAction<number>>;
-
-    savedCount: number;
-    setSavedCount: React.Dispatch<React.SetStateAction<number>>;
 
     todayPlan: any[];
     setTodayPlan: React.Dispatch<React.SetStateAction<any[]>>;
@@ -19,10 +14,7 @@ interface IWorkoutContext {
 
 
 export const WorkoutContext = createContext<IWorkoutContext>({
-    planCount: 0,
-    setPlanCount: () => { },
-    savedCount: 0,
-    setSavedCount: () => { },
+
     todayPlan: [],
     setTodayPlan: () => { },
     savedWorkouts: [],
@@ -32,19 +24,61 @@ export const WorkoutContext = createContext<IWorkoutContext>({
 
 export const WorkoutProvider = ({ children }: { children: ReactNode }) => {
 
-    const [planCount, setPlanCount] = useState(0);
-    const [savedCount, setSavedCount] = useState(0);
-    const [todayPlan,setTodayPlan] = useState<any[]>([]);
+    const [todayPlan, setTodayPlan] = useState<any[]>([]);
     const [savedWorkouts, setSavedWorkouts] = useState<any[]>([]);
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+
+        try {
+            const savedPlan = localStorage.getItem("todayPlan");
+            const saved = localStorage.getItem("savedWorkouts");
+
+            if (savedPlan) {
+                setTodayPlan(JSON.parse(savedPlan));
+            }
+
+            if (saved) {
+                setSavedWorkouts(JSON.parse(saved));
+            }
+        }
+
+        catch (error) {
+            console.log("Local storage error: ",error);
+
+            setTodayPlan([]);
+            setSavedWorkouts([]);
+        }
+
+
+        setLoaded(true);;
+    }, []);
+
+
+    useEffect(() => {
+        if (!loaded) return;
+
+        localStorage.setItem(
+            "todayPlan",
+            JSON.stringify(todayPlan)
+        );
+    }, [todayPlan, loaded]);
+
+
+    useEffect(() => {
+        if (!loaded) return;
+
+        localStorage.setItem(
+            "savedWorkouts",
+            JSON.stringify(savedWorkouts)
+        );
+    }, [savedWorkouts, loaded]);
 
 
 
     return (
         <WorkoutContext.Provider value={{
-            planCount,
-            setPlanCount,
-            savedCount,
-            setSavedCount,
+
             todayPlan,
             setTodayPlan,
             savedWorkouts,

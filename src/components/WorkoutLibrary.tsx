@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkoutCard from './WorkoutCard';
+import WorkoutLibraryList from './WorkoutLibraryList';
 
 
 const WorkoutLibrary = async () => {
@@ -32,18 +32,8 @@ const WorkoutLibrary = async () => {
                     Twelve lifts covering every major muscle group.
                 </p>
 
-
-                <div className='mt-6 grid grid-cols-1 gap-4 md:grid-cols-2
-                lg:grid-cols-3'>
-
-                    {workouts.map((workout: any) => (
-                        <WorkoutCard key={workout.id}
-                            workout={workout} />
-                    ))}
-
-                </div>
-
-
+                <WorkoutLibraryList workouts={workouts} />
+            
 
             </div>
 
