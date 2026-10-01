@@ -1,9 +1,7 @@
+import WorkoutActions from '@/components/WorkoutActions';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
-import { FaPlus } from 'react-icons/fa';
-import { FiPlusSquare } from 'react-icons/fi';
-import { LuBookmark, LuClipboardPlus, LuSquarePlus } from 'react-icons/lu';
+import { LuBookmark, } from 'react-icons/lu';
 
 const WorkoutDetails = async ({ params }: { params: Promise<{ id: string }>; }) => {
 
@@ -43,7 +41,7 @@ const WorkoutDetails = async ({ params }: { params: Promise<{ id: string }>; }) 
 
                     {/* Muscle Groups */}
                     <div className="mb-3 flex flex-wrap gap-2">
-                        {workout.muscleGroups.map((muscle: string) => (
+                        {workout.muscleGroups?.map((muscle: string) => (
                             <span
                                 key={muscle}
                                 className="rounded-full bg-lime-400 px-2 py-1 text-[10px] 
@@ -78,25 +76,20 @@ const WorkoutDetails = async ({ params }: { params: Promise<{ id: string }>; }) 
 
                     <div>
 
-                        <Link
-                            href="#"
-                            className='mt-8 inline-flex items-center gap-2 rounded-full bg-lime-400 px-6 py-3 font-semibold text-black'
-                        >
-                            <LuClipboardPlus />
-                            BROWSE WORKOUTS
-
-                        </Link>
+                        <div>
+                            <WorkoutActions workout={workout} />
 
 
-                        <Link
-                            href=""
-                            className='mt-8 inline-flex items-center gap-2 rounded-full
+                            <Link
+                                href=""
+                                className='mt-8 inline-flex items-center gap-2 rounded-full
                             bg-[#374151] px-6 py-3 font-semibold text-white'
-                        >
-                            <LuBookmark />
-                           Save For Later
+                            >
+                                <LuBookmark />
+                                Save For Later
 
-                        </Link>
+                            </Link>
+                        </div>
 
                     </div>
 
