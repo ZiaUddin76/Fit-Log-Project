@@ -3,14 +3,17 @@
 import MyPlanCard from '@/components/MyPlanCard';
 import { WorkoutContext } from '@/context/WorkoutContext';
 import Link from 'next/link';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
 
 const MyPlanPage = () => {
-    const { todayPlan, savedWorkouts } = useContext(WorkoutContext);
+    const { todayPlan, savedWorkouts, loaded } = useContext(WorkoutContext);
 
     const [activeTab, setActiveTab] = useState('today');
 
     const [sortBy, setSortBy] = useState('duration');
+
+    
 
     const currentWorkouts = activeTab === 'today' ? todayPlan : savedWorkouts;
 
@@ -44,6 +47,17 @@ const MyPlanPage = () => {
 
     });
 
+
+    
+
+
+    if (!loaded) {
+        return (
+            <div className="flex min-h-[70vh] items-center justify-center">
+                <div className="h-10 w-10 animate-spin rounded-full border-4 border-gray-700 border-t-lime-400" />
+            </div>
+        );
+    }
 
 
     return (

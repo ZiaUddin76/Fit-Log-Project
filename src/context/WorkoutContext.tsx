@@ -10,6 +10,8 @@ interface IWorkoutContext {
 
     savedWorkouts: any[];
     setSavedWorkouts: React.Dispatch<React.SetStateAction<any[]>>;
+    
+    loaded: boolean;
 }
 
 
@@ -51,7 +53,7 @@ export const WorkoutProvider = ({ children }: { children: ReactNode }) => {
         }
 
 
-        setLoaded(true);;
+        setLoaded(true);
     }, []);
 
 
@@ -83,6 +85,7 @@ export const WorkoutProvider = ({ children }: { children: ReactNode }) => {
             setTodayPlan,
             savedWorkouts,
             setSavedWorkouts,
+            loaded,
         }}>
             {children}
         </WorkoutContext.Provider>
