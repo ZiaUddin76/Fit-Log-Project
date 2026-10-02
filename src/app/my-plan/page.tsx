@@ -12,19 +12,20 @@ const MyPlanPage = () => {
 
     const [sortBy, setSortBy] = useState('duration');
 
+    const currentWorkouts = activeTab === 'today' ? todayPlan : savedWorkouts;
 
-    const totalMinutes = todayPlan.reduce(
+
+    const totalMinutes = currentWorkouts.reduce(
         (total, workout) => total + workout.duration,
         0
     );
 
-    const totalCalories = todayPlan.reduce(
+    const totalCalories = currentWorkouts.reduce(
         (total, workout) => total + workout.caloriesBurned,
         0
     );
 
 
-    const currentWorkouts = activeTab === 'today' ? todayPlan : savedWorkouts;
 
 
     const sortedWorkouts = [...currentWorkouts].sort((a, b) => {
@@ -69,7 +70,7 @@ const MyPlanPage = () => {
                     </p>
 
                     <p className="mt-2 text-4xl font-extrabold text-lime-400">
-                        {todayPlan.length}
+                        {currentWorkouts.length}
                     </p>
                 </div>
 

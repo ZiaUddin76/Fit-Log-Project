@@ -50,13 +50,13 @@ const WorkoutCard = ({ workout }: any) => {
                     <div className="flex items-center gap-4 text-[10px] text-gray-400
                 ">
                         <span className="flex items-center gap-1 whitespace-nowrap">
-                            <FaClock /> {workout.duration} min</span>
+                            <FaClock className="text-lime-400" /> {workout.duration} min</span>
 
                         <span className="flex items-center gap-1 whitespace-nowrap">
-                            <FaFire /> {workout.caloriesBurned} kcal</span>
+                            <FaFire className="text-lime-400" /> {workout.caloriesBurned} kcal</span>
 
                         <span className="flex items-center gap-1 whitespace-nowrap">
-                            <FaStar /> {workout.rating}</span>
+                            <FaStar className="text-lime-400" /> {workout.rating}</span>
                     </div>
 
                 </div>
