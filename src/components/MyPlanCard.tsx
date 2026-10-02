@@ -2,7 +2,8 @@ import { WorkoutContext } from '@/context/WorkoutContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { LuClock3, LuFlame, LuStar, LuX } from 'react-icons/lu';
+import { BiCheck } from 'react-icons/bi';
+import { LuClock3, LuFlame, LuStar, LuX, LuCheck } from 'react-icons/lu';
 import { toast } from 'react-toastify';
 
 const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; }) => {
@@ -64,17 +65,17 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
                 <div className="mt-4 flex items-center gap-5 text-sm text-gray-300">
 
                     <div className="flex items-center gap-1.5">
-                        <LuClock3 />
+                        <LuClock3 className='text-lime-400' />
                         <span>{workout.duration} min</span>
                     </div>
 
                     <div className="flex items-center gap-1.5">
-                        <LuFlame />
+                        <LuFlame className='text-lime-400' />
                         <span>{workout.caloriesBurned} cal</span>
                     </div>
 
                     <div className="flex items-center gap-1.5">
-                        <LuStar />
+                        <LuStar className='text-lime-400' />
                         <span>{workout.rating}</span>
                     </div>
 
@@ -97,8 +98,10 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
                     <button
                         onClick={handleMarkAsDone}
                         className="rounded-full bg-lime-400 px-4 py-2 text-sm 
-                        font-semibold text-black cursor-pointer hover:bg-lime-300"
+                        font-semibold text-black cursor-pointer hover:bg-lime-300
+                        flex items-center gap-1"
                     >
+                        <LuCheck size={17} strokeWidth={4} />
                         Mark as Done
                     </button>
 
