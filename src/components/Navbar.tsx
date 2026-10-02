@@ -36,7 +36,7 @@ const Navbar = () => {
                         <Link
                             href="/#library"
                             className={`rounded-full px-4 py-2 transition ${pathname === '/'
-                                ? 'bg-lime-400/10 text-lime-400 font-bold'
+                                ? 'bg-lime-400/18 text-lime-400 font-bold'
                                 : 'text-white'
                                 }`}
                         >
@@ -48,7 +48,7 @@ const Navbar = () => {
                         <Link
                             href="/my-plan"
                             className={`rounded-full px-4 py-2 transition ${pathname === '/my-plan'
-                                ?'bg-lime-400/10 text-lime-400 font-bold'
+                                ?'bg-lime-400/18 text-lime-400 font-bold'
                                 : 'text-white'
                                 }`}
                         >
@@ -91,7 +91,7 @@ const Navbar = () => {
                                 href="/#library"
                                 onClick={() => setMenuOpen(false)}
                                 className={`rounded-full px-4 py-2 transition ${pathname === '/'
-                                    ? 'bg-lime-400/10 text-lime-400 font-bold'
+                                    ? 'bg-lime-400/18 text-lime-400 font-bold'
                                     : 'text-white'
                                     }`}
                             >
@@ -104,7 +104,7 @@ const Navbar = () => {
                                 href="/my-plan"
                                 onClick={() => setMenuOpen(false)}
                                 className={`rounded-full px-4 py-2 transition ${pathname === '/my-plan'
-                                    ? 'bg-lime-400/10 text-lime-400 font-bold'
+                                    ? 'bg-lime-400/18 text-lime-400 font-bold'
                                     : 'text-white'
                                     }`}
                             >

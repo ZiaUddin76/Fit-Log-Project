@@ -61,7 +61,7 @@ const MyPlanPage = () => {
 
 
             {/* METRICS */}
-            <div className="mt-8 grid grid-cols-1 overflow-hidden rounded-xl border border-gray-800 bg-[#15171D] md:grid-cols-3">
+            <div className="relative mt-8 grid grid-cols-1 overflow-hidden rounded-xl border border-gray-800 bg-[#15171D] md:grid-cols-3">
 
                 <div className="px-6 py-7">
                     <p className="text-xs text-gray-500">
@@ -73,7 +73,12 @@ const MyPlanPage = () => {
                     </p>
                 </div>
 
-                <div className="border-t border-gray-800 px-6 py-7 md:border-l md:border-t-0">
+
+                {/* divider */}
+                <div className="absolute left-1/3 top-1/2 hidden h-15 -translate-y-1/2 border-l border-gray-700 md:block" />
+
+
+                <div className="px-6 py-7">
                     <p className="text-xs text-gray-500">
                         Minutes
                     </p>
@@ -83,7 +88,12 @@ const MyPlanPage = () => {
                     </p>
                 </div>
 
-                <div className="border-t border-gray-800 px-6 py-7 md:border-l md:border-t-0">
+
+                {/* divider */}
+                <div className="absolute left-2/3 top-1/2 hidden h-15 -translate-y-1/2 border-l border-gray-700 md:block" />
+
+
+                <div className="px-6 py-7">
                     <p className="text-xs text-gray-500">
                         Calories
                     </p>
@@ -132,20 +142,22 @@ const MyPlanPage = () => {
                         Sort By
                     </span>
 
-                    
+
 
                     <div className="relative">
                         <select
                             value={sortBy}
                             onChange={(e) => setSortBy(e.target.value)}
-                            className="appearance-none rounded-lg border border-gray-800 bg-[#15171D] px-4 py-2 pr-9 text-xs text-gray-300 outline-none"
+                            className="appearance-none rounded-lg border border-gray-800 
+                            bg-[#15171D] px-4 py-2 pr-5 text-xs text-gray-300 outline-none
+                            cursor-pointer hover:bg-gray-800"
                         >
                             <option value="duration">Duration</option>
                             <option value="calories">Calories</option>
                             <option value="rating">Rating</option>
                         </select>
 
-                        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500">
+                        <span className="pointer-events-none absolute right-2 top-[35%] -translate-y-1/2 text-gray-500">
                             ⌄
                         </span>
                     </div>
@@ -171,7 +183,7 @@ const MyPlanPage = () => {
 
                         <Link
                             href="/"
-                            className="mt-6 inline-flex cursor-pointer rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition hover:bg-lime-300"
+                            className="mt-6 inline-flex cursor-pointer rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition hover:bg-lime-200"
                         >
                             Go to workouts
                         </Link>
@@ -212,7 +224,7 @@ const MyPlanPage = () => {
 
                         <Link
                             href="/"
-                            className="mt-6 inline-flex cursor-pointer rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition hover:bg-lime-300"
+                            className="mt-6 inline-flex cursor-pointer rounded-full bg-lime-400 px-6 py-3 font-semibold text-black transition hover:bg-lime-200"
                         >
                             Go to workouts
                         </Link>

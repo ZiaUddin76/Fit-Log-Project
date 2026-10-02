@@ -32,7 +32,7 @@ const WorkoutActions = ({ workout }: { workout: any }) => {
         <button
             onClick={handleAddToPlan}
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-lime-400
-            px-6 py-3 font-semibold text-black cursor-pointer hover:bg-lime-300"
+            px-6 py-3 font-semibold text-black cursor-pointer hover:bg-lime-200"
         >
             <LuClipboardPlus />
             Add to Today's Plan

@@ -1,5 +1,5 @@
+'use client'
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import { FaArrowDown } from 'react-icons/fa';
 
@@ -31,13 +31,19 @@ const Hero = () => {
                             and watch the week's work add up.
                         </p>
 
-                        <Link
-                            href="#library"
-                            className='mt-8 inline-flex items-center gap-2 rounded-full bg-lime-400 px-6 py-3 font-semibold text-black'
+                        <button
+                            onClick={() => {
+                                document.getElementById('library')?.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
+                            }}
+                            className="mt-8 inline-flex items-center gap-2 rounded-full 
+                            bg-lime-400 px-6 py-3 font-semibold text-black cursor-pointer
+                            hover:bg-lime-200"
                         >
                             BROWSE WORKOUTS
                             <FaArrowDown />
-                        </Link>
+                        </button>
                     </div>
 
                     <div className='flex justify-end'>
