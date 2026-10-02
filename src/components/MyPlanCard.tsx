@@ -86,7 +86,8 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
 
                 <Link
                     href={`/workout/${workout.id}`}
-                    className="rounded-full border border-gray-600 px-4 py-2 text-sm font-medium text-white"
+                    className="rounded-full border border-gray-600 px-4 py-2 text-sm
+                    font-medium text-white cursor-pointer hover:bg-gray-600"
                 >
                     View Details
                 </Link>
@@ -95,7 +96,8 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
 
                     <button
                         onClick={handleMarkAsDone}
-                        className="rounded-full bg-lime-400 px-4 py-2 text-sm font-semibold text-black"
+                        className="rounded-full bg-lime-400 px-4 py-2 text-sm 
+                        font-semibold text-black cursor-pointer hover:bg-lime-300"
                     >
                         Mark as Done
                     </button>
@@ -105,7 +107,8 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
 
                 <button
                     onClick={handleRemove}
-                    className="flex h-9 w-9 items-center justify-center rounded-full text-gray-400 hover:bg-gray-800 hover:text-white"
+                    className="flex h-9 w-9 items-center justify-center rounded-full
+                    cursor-pointer text-gray-400 hover:bg-gray-800 hover:text-white"
                 >
                     <LuX />
                 </button>

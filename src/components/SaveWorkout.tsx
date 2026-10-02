@@ -26,7 +26,9 @@ const SaveWorkout = ({ workout }: { workout: any }) => {
 
         <button
             onClick={handleSave}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#374151] px-6 py-3 font-semibold text-white"
+            className="mt-8 inline-flex items-center gap-2 rounded-full
+            px-6 py-3 font-semibold text-white cursor-pointer hover:bg-gray-600
+            border border-gray-700"
         >
             <LuBookmark />
             Save For Later

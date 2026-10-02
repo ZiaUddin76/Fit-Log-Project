@@ -33,15 +33,25 @@ const Navbar = () => {
             <div className='hidden md:block'>
                 <ul className='flex items-center gap-6'>
                     <li>
-                        <Link href="/#library"
-                            className={pathname === '/' ? 'text-lime-400' : ''} >
+                        <Link
+                            href="/#library"
+                            className={`rounded-full px-4 py-2 transition ${pathname === '/'
+                                ? 'bg-lime-400/10 text-lime-400 font-bold'
+                                : 'text-white'
+                                }`}
+                        >
                             Workouts
                         </Link>
                     </li>
+
                     <li>
                         <Link
                             href="/my-plan"
-                            className={pathname === '/my-plan' ? 'text-lime-400' : ''}>
+                            className={`rounded-full px-4 py-2 transition ${pathname === '/my-plan'
+                                ?'bg-lime-400/10 text-lime-400 font-bold'
+                                : 'text-white'
+                                }`}
+                        >
                             My Plan
                         </Link>
                     </li>
@@ -68,7 +78,7 @@ const Navbar = () => {
 
 
             <button onClick={() => setMenuOpen(!menuOpen)}
-                className='md:hidden text-2xl'>
+                className='md:hidden text-2xl cursor-pointer'>
                 ☰
             </button>
 
@@ -76,18 +86,31 @@ const Navbar = () => {
                 <div className="absolute top-full left-0 z-50 w-full border-t
                  border-gray-800 bg-[#0a0a0a] p-6 md:hidden">
                     <ul className="flex flex-col gap-5">
-                        <Link href="/#library"
-                            onClick={() => setMenuOpen(false)}
-                            className={pathname === '/' ? 'text-lime-400' : ''} >
-                            Workouts
-                        </Link>
+                        <li>
+                            <Link
+                                href="/#library"
+                                onClick={() => setMenuOpen(false)}
+                                className={`rounded-full px-4 py-2 transition ${pathname === '/'
+                                    ? 'bg-lime-400/10 text-lime-400 font-bold'
+                                    : 'text-white'
+                                    }`}
+                            >
+                                Workouts
+                            </Link>
+                        </li>
 
-                        <Link
-                            href="/my-plan"
-                            onClick={() => setMenuOpen(false)}
-                            className={pathname === '/my-plan' ? 'text-lime-400' : ''}>
-                            My Plan
-                        </Link>
+                        <li>
+                            <Link
+                                href="/my-plan"
+                                onClick={() => setMenuOpen(false)}
+                                className={`rounded-full px-4 py-2 transition ${pathname === '/my-plan'
+                                    ? 'bg-lime-400/10 text-lime-400 font-bold'
+                                    : 'text-white'
+                                    }`}
+                            >
+                                My Plan
+                            </Link>
+                        </li>
 
                         <li>
                             <Link href="/my-plan">Plan {todayPlan.length} </Link>

@@ -99,7 +99,8 @@ const MyPlanPage = () => {
 
                         <Link
                             href="/"
-                            className="mt-6 inline-flex rounded-full bg-lime-400 px-6 py-3 font-semibold text-black"
+                            className="mt-6 inline-flex rounded-full bg-lime-400 px-6
+                            py-3 font-semibold text-black cursor-pointer hover:bg-lime-300"
                         >
                             Go to workouts
                         </Link>
@@ -131,7 +132,8 @@ const MyPlanPage = () => {
 
                         <Link
                             href="/"
-                            className="mt-6 inline-flex rounded-full bg-lime-400 px-6 py-3 font-semibold text-black"
+                            className="mt-6 inline-flex rounded-full bg-lime-400 
+                            px-6 py-3 font-semibold text-black cursor-pointer hover:bg-lime-300"
                         >
                             Go to workouts
                         </Link>
