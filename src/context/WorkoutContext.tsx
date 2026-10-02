@@ -21,6 +21,7 @@ export const WorkoutContext = createContext<IWorkoutContext>({
     setTodayPlan: () => { },
     savedWorkouts: [],
     setSavedWorkouts: () => { },
+    loaded: false,
 });
 
 
