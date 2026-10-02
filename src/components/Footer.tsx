@@ -3,9 +3,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-         <footer className="mt-20 border-t border-gray-900 bg-[#0B0D10]">
+        <footer className="mt-20 border-t border-gray-900 bg-[#0B0D10]">
 
-            <div className="flex items-center justify-between px-8 py-10">
+            <div className="flex flex-col items-center gap-4 px-6 py-8 text-center
+            md:flex-row md:justify-between md:px-8 md:py-10 md:text-left">
 
                 {/* Logo */}
                 <div className="flex items-center gap-2">
@@ -20,7 +21,6 @@ const Footer = () => {
                         FITLOG
                     </p>
                 </div>
-
 
                 {/* Copyright */}
                 <p className="text-sm text-gray-500">

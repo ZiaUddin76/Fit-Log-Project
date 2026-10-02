@@ -48,7 +48,7 @@ const Navbar = () => {
                         <Link
                             href="/my-plan"
                             className={`rounded-full px-4 py-2 transition ${pathname === '/my-plan'
-                                ?'bg-lime-400/18 text-lime-400 font-bold'
+                                ? 'bg-lime-400/18 text-lime-400 font-bold'
                                 : 'text-white'
                                 }`}
                         >
@@ -113,11 +113,31 @@ const Navbar = () => {
                         </li>
 
                         <li>
-                            <Link href="/my-plan">Plan {todayPlan.length} </Link>
+                            <Link
+                                href="/my-plan"
+                                onClick={() => setMenuOpen(false)}
+                                className="flex items-center gap-2"
+                            >
+                                <span>Plan</span>
+
+                                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-lime-400 text-xs font-bold text-black">
+                                    {todayPlan.length}
+                                </span>
+                            </Link>
                         </li>
 
                         <li>
-                            <Link href="/my-plan">Saved {savedWorkouts.length} </Link>
+                            <Link
+                                href="/my-plan"
+                                onClick={() => setMenuOpen(false)}
+                                className="flex items-center gap-2"
+                            >
+                                <span>Saved</span>
+
+                                <span className="flex h-5 w-5 items-center justify-center rounded-full border border-gray-500 text-xs">
+                                    {savedWorkouts.length}
+                                </span>
+                            </Link>
                         </li>
                     </ul>
                 </div>

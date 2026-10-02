@@ -2,7 +2,6 @@ import { WorkoutContext } from '@/context/WorkoutContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useContext } from 'react';
-import { BiCheck } from 'react-icons/bi';
 import { LuClock3, LuFlame, LuStar, LuX, LuCheck } from 'react-icons/lu';
 import { toast } from 'react-toastify';
 
@@ -38,21 +37,22 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
     return (
 
 
-        <div className="flex items-center justify-between gap-6 rounded-xl bg-[#15171D] p-4">
+        <div className="flex flex-col gap-4 rounded-xl bg-[#15171D] p-4 md:flex-row md:items-center md:justify-between md:gap-6">
 
             {/* Left: Image */}
-            <div className="shrink-0">
+            <div className="w-full shrink-0 md:w-auto">
                 <Image
                     src={workout.image}
                     alt={workout.name}
                     width={180}
                     height={120}
-                    className="h-28 w-44 rounded-lg object-cover"
+                    className="h-40 w-full rounded-lg object-cover
+                    md:h-28 md:w-44"
                 />
             </div>
 
             {/* Middle: Workout Info */}
-            <div className="flex-1">
+            <div className="min-w-0 flex-1">
                 <h2 className="text-xl font-bold text-white">
                     {workout.name}
                 </h2>
@@ -62,7 +62,7 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
                 </p>
 
                 {/* Stats */}
-                <div className="mt-4 flex items-center gap-5 text-sm text-gray-300">
+                <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-300 md:gap-5">
 
                     <div className="flex items-center gap-1.5">
                         <LuClock3 className='text-lime-400' />
@@ -83,12 +83,12 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
             </div>
 
             {/* Right: Actions */}
-            <div className="flex shrink-0 items-center gap-2">
+            <div className="flex w-full shrink-0 flex-wrap items-center gap-2 md:w-auto md:flex-nowrap">
 
                 <Link
                     href={`/workout/${workout.id}`}
-                    className="rounded-full border border-gray-600 px-4 py-2 text-sm
-                    font-medium text-white cursor-pointer hover:bg-gray-600"
+                    className="rounded-full border border-gray-600 px-3 py-2 text-sm
+                    font-medium text-white cursor-pointer hover:bg-gray-600 md:px-4"
                 >
                     View Details
                 </Link>
@@ -97,9 +97,9 @@ const MyPlanCard = ({ workout, type }: { workout: any; type: "today" | "saved"; 
 
                     <button
                         onClick={handleMarkAsDone}
-                        className="rounded-full bg-lime-400 px-4 py-2 text-sm 
+                        className="rounded-full bg-lime-400 px-3 py-2 text-sm 
                         font-semibold text-black cursor-pointer hover:bg-lime-300
-                        flex items-center gap-1"
+                        flex items-center gap-1 md:px-4"
                     >
                         <LuCheck size={17} strokeWidth={4} />
                         Mark as Done
